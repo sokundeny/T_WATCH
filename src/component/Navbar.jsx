@@ -20,18 +20,16 @@ const Navbar = () => {
           ))}
         </ul>
         <IoMenu onClick={toggleMenu}className="text-2xl sm:text-3xl cursor-pointer lg:hidden" />
-        <div className={`lg:hidden ${visible ? "block" : "hidden"}`}>
-          <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-10 z-10" onClick={toggleMenu}>
-            <div className="absolute top-0 left-0 w-full h-full bg-white p-10" onClick={(e) => e.stopPropagation()}>
-              <IoClose onClick={toggleMenu} className="text-3xl absolute top-5 right-5 cursor-pointer" />
-              <ul className="flex flex-col gap-y-5">
-                {navmenu.map((item, index) => (
+        <div className={`lg:hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-10 z-10 ${visible ? "block" : "hidden"}`} onClick={toggleMenu}>
+          <div className="absolute top-0 left-0 w-full h-full bg-white p-10" onClick={(e) => e.stopPropagation()}>
+            <IoClose onClick={toggleMenu} className="text-3xl absolute top-5 right-5 cursor-pointer" />
+            <ul className="flex flex-col gap-y-5">
+              {navmenu.map((item, index) => (
                 <li key={index}>
                   <a href={item.path} className="text-lg">{item.name}</a>
                 </li>
-                ))}
-              </ul>
-            </div>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
