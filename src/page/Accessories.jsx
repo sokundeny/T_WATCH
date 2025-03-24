@@ -1,8 +1,10 @@
-import React from 'react'
+import  'react'
 
 const Accessories = () => {
   return (
-    <div>Accessories</div>
+   <div>
+    
+   </div>
   )
 }
 
