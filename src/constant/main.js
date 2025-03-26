@@ -45,6 +45,13 @@ import Card41 from "../assets/image/zephyr_gold.png";
 import box1 from "../assets/image/Box1.png";
 import box2 from "../assets/image/Box2.png";
 
+//Straps Data//
+
+import strap1 from "../assets/image/strap1.png";
+import strap2 from "../assets/image/strap2.png";
+import strap3 from "../assets/image/strap3.png";
+
+
 
 
 
@@ -110,4 +117,10 @@ export const Boxdata = [
   { image:box2 , name: "Card4",price: "490$" },
   { image:box1 , name: "Card5",price: "490$" },
   { image:box2, name: "Card6",price: "490$" },
+];
+export const Strapsdata = [
+  { image:strap1 , name: "Card ",price: "490$" },
+  { image:strap2 , name: "Card2",price: "490$"},
+  { image:strap3 , name: "Card3",price: "490$" },
+  { image:strap1 , name: "Card4",price: "490$" },
 ];

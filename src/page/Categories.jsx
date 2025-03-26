@@ -15,9 +15,7 @@ const Categories = () => {
 
   return (
     <>
-      <Navbar />
-      
-    
+
       <div className="flex justify-start ml-32 space-4 mt-16 flex-wrap sm:space-x-8">
         <button
           onClick={() => setSelectedCategory('All')}

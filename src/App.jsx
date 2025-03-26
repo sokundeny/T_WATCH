@@ -5,6 +5,7 @@ import Home from './page/Home';
 import Categories from './page/Categories';
 import Straps from './page/Straps';
 import Accessories from './page/Accessories';
+import Footer from './component/Footer';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/straps' element={<Straps/>}/>
         <Route path='/accessories' element={<Accessories/>}/>
       </Routes>
+      <Footer/>
     </>
   );
 }
