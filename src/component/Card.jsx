@@ -21,7 +21,7 @@ const Card = ({ imageSrc, name,tag }) => {
         <div className='relative w-78 h-72 overflow-hidden'>
         <img className="w-48 h-64 object-cover ml-20 relative z-0 rounded-lg transition-all duration-700  hover:scale-150  " src={imageSrc}  />
         {tag && (
-          <div className={`absolute top-1 right-8 text-[8px] font-semibold rounded-full w-12 h-12 flex items-center justify-center z-10 ${tagStyles()}`}>
+          <div className={`absolute top-1 right-8 text-[8px] font-semibold rounded-full w-12 h-12 flex items-center justify-center z-10 text-center ${tagStyles()}`}>
             {tag}
           </div>
         )}
