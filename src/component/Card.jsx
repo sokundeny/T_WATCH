@@ -1,5 +1,4 @@
 
-
 import 'react';
 
 const Card = ({ imageSrc, name,tag }) => {

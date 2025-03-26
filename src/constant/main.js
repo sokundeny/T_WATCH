@@ -41,6 +41,12 @@ import Card39 from "../assets/image/rivalrosegold.png";
 import Card40 from "../assets/image/rivalvolt.png";
 import Card41 from "../assets/image/zephyr_gold.png";
 
+//Accessories DATA//
+import box1 from "../assets/image/Box1.png";
+import box2 from "../assets/image/Box2.png";
+
+
+
 
 
 export const imageData = [
@@ -91,9 +97,17 @@ export const imageData = [
   
 ];
 
-
 export const navmenu=[
     {name: 'Categories', path: '/categories'},
     {name: 'Straps', path: '/straps'},
     {name: 'Accessories', path: '/accessories'},
+];
+
+export const Boxdata = [
+  { image:box1 , name: "Card ",price: "490$" },
+  { image:box2 , name: "Card2",price: "490$"},
+  { image:box1 , name: "Card3",price: "490$" },
+  { image:box2 , name: "Card4",price: "490$" },
+  { image:box1 , name: "Card5",price: "490$" },
+  { image:box2, name: "Card6",price: "490$" },
 ];
