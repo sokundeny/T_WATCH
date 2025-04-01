@@ -1,13 +1,11 @@
 import 'react';
-import Navbar from '../component/Navbar';
 import { Boxdata } from '../constant/main';
 
 const Accessories = () => {
   return (
     <>
-      <Navbar />
       <h1 className="flex justify-center mt-10 text-2xl">Watch Box Collection</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-16 px-20 mt-20 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16 px-20 mt-20 ">
         {Boxdata.map((item, index) => (
           <div key={index}>
             <img src={item.image} alt={item.name}  />
