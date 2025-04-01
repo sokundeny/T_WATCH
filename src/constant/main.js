@@ -51,7 +51,13 @@ import strap1 from "../assets/image/strap1.png";
 import strap2 from "../assets/image/strap2.png";
 import strap3 from "../assets/image/strap3.png";
 
+// slide
 
+import slide1 from "../assets/slide/image1.jpg";
+import slide2 from "../assets/slide/image2.jpg";
+import slide3 from "../assets/slide/image3.jpg";
+import slide4 from "../assets/slide/image4.jpg";
+import slide5 from "../assets/slide/image5.jpg";
 
 
 
@@ -108,6 +114,14 @@ export const navmenu=[
     {name: 'Categories', path: '/categories'},
     {name: 'Straps', path: '/straps'},
     {name: 'Accessories', path: '/accessories'},
+];
+
+export const slideitems=[
+  {image: slide1, name:"Zinvo Dragon Blade",path: '/categories'},
+  { image:slide2, name: "D1 Milano ultra thin",path: '/categories'},
+  { image:slide3, name: "Zinvo Blade woman",path: '/categories'},
+  { image:slide4, name: "D1 milano automatice bracelet",path: '/categories'},
+  { image:slide5, name: "Mstr champage gold",path: '/categories'},
 ];
 
 export const Boxdata = [
