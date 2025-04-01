@@ -72,7 +72,6 @@ import box25 from "../assets/image/box25.png";
 import strap1 from "../assets/image/strap1.png";
 import strap2 from "../assets/image/strap2.png";
 import strap3 from "../assets/image/strap3.png";
-<<<<<<< HEAD
 
 // slide
 
@@ -84,29 +83,6 @@ import slide5 from "../assets/slide/image5.jpg";
 
 
 
-=======
-import strap4 from "../assets/image/strap4.png";
-import strap5 from "../assets/image/strap5.png";
-import strap6 from "../assets/image/strap6.png";
-import strap7 from "../assets/image/strap7.png";
-import strap8 from "../assets/image/strap8.png";
-import strap9 from "../assets/image/strap9.png";
-import strap10 from "../assets/image/strap10.png";
-import strap11 from "../assets/image/strap11.png";
-import strap12 from "../assets/image/strap12.png";
-import strap13 from "../assets/image/strap13.png";
-import strap14 from "../assets/image/strap14.png";
-import strap15 from "../assets/image/strap15.png";
-import strap16 from "../assets/image/strap16.png";
-import strap17 from "../assets/image/strap17.png";
-import strap18 from "../assets/image/strap18.png";
-import strap19 from "../assets/image/strap19.png";
-import strap20 from "../assets/image/strap20.png";
-import strap21 from "../assets/image/strap21.png";
-import strap22 from "../assets/image/strap22.png";
-import strap23 from "../assets/image/strap23.png";
-import strap24 from "../assets/image/strap24.png";
->>>>>>> a146bc7b49bc3342d23b1d05b2c66380dbd6998a
 
 export const imageData = [
   { imageSrc: Card1, name: "Card1", category: "Women", tag: "NEW RELEASE" },
