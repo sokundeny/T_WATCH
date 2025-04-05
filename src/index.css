@@ -4,3 +4,6 @@
 :root{
   font-family: "poppins",sans-serif;
 }
+html, body {
+  overflow-x: hidden;
+}

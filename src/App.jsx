@@ -7,6 +7,9 @@ import Straps from './page/Straps';
 import Accessories from './page/Accessories';
 import CheckOut from './page/CheckOut'
 import Footer from './component/Footer';
+import ProductDetail from './component/ProductDetails';
+
+
 import { ModalProvider} from './ModalContext';
 import CartModal from './component/CartModal';
 
@@ -45,6 +48,7 @@ function App() {
         <Route path='/categories' element={<Categories/>}/>
         <Route path='/straps' element={<Straps/>}/>
         <Route path='/accessories' element={<Accessories/>}/>
+        <Route path="/product/:productName" element={<ProductDetail />} />
         <Route path='/checkout' element={<CheckOut/>}/>
       </Routes>
       {!noNavPage.includes(location.pathname) && <Footer />}
