@@ -2,9 +2,11 @@ import React,{useState} from 'react'
 import logo from './../assets/logo.png'
 import { IoSearch,IoPersonCircleOutline,IoCartOutline,IoMenu,IoClose} from "react-icons/io5";
 import {navmenu} from '../constant/main.js'
+import { useModal } from '../ModalContext.jsx';
 
 const Navbar = () => {
   const [visible,setVisible]=useState(false);
+  const { openModal } = useModal()
 
   const toggleMenu = () => {
     setVisible(!visible);
@@ -40,7 +42,7 @@ const Navbar = () => {
       <div className='flex items-center justify-end gap-5 sm:gap-10 lg:gap-12 flex-1' >
         <IoSearch className="text-2xl sm:text-3xl cursor-pointer" />
         <IoPersonCircleOutline className="text-2xl sm:text-3xl cursor-pointer" />
-        <IoCartOutline className="text-2xl sm:text-3xl cursor-pointer" />
+        <IoCartOutline className="text-2xl sm:text-3xl cursor-pointer" onClick={openModal} />
       </div>
     </div>
   )
