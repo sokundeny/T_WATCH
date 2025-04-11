@@ -43,8 +43,8 @@ const Card = ({ imageSrc, name, tag, data }) => {
           </div>
         )}
         </div>
-      <div className="py-4 px-8 ml-28">
-        <div className="font-popins font-thin text-xl mb-4 text-start">{name}</div>
+      <div className="py-4 px-8 text-center">
+        <div className="font-popins font-thin text-xl mb-4  ">{name}</div>
       </div>
     </div>
   );
