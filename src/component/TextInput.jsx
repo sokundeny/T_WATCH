@@ -1,6 +1,6 @@
 
 
-const TextInput = ({id, type, name, placeholder, style}) => {
+const TextInput = ({id, type, name, placeholder, style, required}) => {
 
     return (
         <input  className="h-12 w-full border border-[#8F8F8F] rounded-lg text-sm p-3"
@@ -9,6 +9,7 @@ const TextInput = ({id, type, name, placeholder, style}) => {
                 name={name}
                 placeholder={placeholder}
                 style={style}
+                required={required}
         />
     )
 }

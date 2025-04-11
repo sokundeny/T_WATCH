@@ -1,7 +1,22 @@
 
 import 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Card = ({ imageSrc, name,tag }) => {
+const Card = ({ imageSrc, name, tag, data }) => {
+
+    const navigate = useNavigate();
+  
+    const handleItemClick = () => {
+      navigate(`/product/${name}`, {
+          state: { product: {
+            name: name,
+            price: null,
+            tag: tag,
+            image: imageSrc
+          }}
+      });
+    };
+
   const tagStyles = () => {
     switch (tag) {
       case 'NEW RELEASE':
@@ -18,7 +33,10 @@ const Card = ({ imageSrc, name,tag }) => {
   return (
     <div className="max-w-sm rounded  ">
         <div className='relative w-78 h-72 overflow-hidden'>
-        <img className="w-48 h-64 object-cover ml-20 relative z-0 rounded-lg transition-all duration-700  hover:scale-150  " src={imageSrc}  />
+        <img className="w-48 h-64 object-cover ml-20 relative z-0 rounded-lg transition-all duration-700  hover:scale-150  " 
+             src={imageSrc}
+             onClick={() => handleItemClick()}
+        />
         {tag && (
           <div className={`absolute top-1 right-8 text-[8px] font-semibold rounded-full w-12 h-12 flex items-center justify-center z-10 text-center ${tagStyles()}`}>
             {tag}
@@ -26,7 +44,7 @@ const Card = ({ imageSrc, name,tag }) => {
         )}
         </div>
       <div className="py-4 px-8 ml-28">
-        <div className="font-popins font-thin text-xl mb-4  text-start">{name}</div>
+        <div className="font-popins font-thin text-xl mb-4 text-start">{name}</div>
       </div>
     </div>
   );

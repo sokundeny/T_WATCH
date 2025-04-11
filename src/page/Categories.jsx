@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../component/Navbar';
 import Card from "../component/Card";
 import { imageData } from '../constant/main';
+import { useNavigate } from 'react-router-dom';
 
 const Categories = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -46,7 +47,13 @@ const Categories = () => {
       {/* Watch Gallery Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-6 mt-16">
         {filterWatches(selectedCategory).map((data, index) => (
-           <Card key={index} imageSrc={data.imageSrc} name={data.name} category={data.category} tag={data.tag} />
+           <Card key={index} 
+                 imageSrc={data.imageSrc} 
+                 name={data.name} 
+                 category={data.category} 
+                 tag={data.tag} 
+                 data={data}
+            />
         ))}
       </div>
     </>

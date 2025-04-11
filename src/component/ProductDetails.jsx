@@ -1,23 +1,31 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import Card from './Card';
 import { imageData, Strapsdata, Boxdata } from '../constant/main';
 
-const ProductDetail = () => {
-  const { productName } = useParams();
+const ProductDetail = ({ updateCart }) => {
+  const location = useLocation();
+  const { product } = location.state || {};
+
+
+  // const { productName } = useParams();
   const [quantity, setQuantity] = useState(1);
 
-  // Find the product from imageData based on the URL parameter
-  const products = [...Boxdata,...Strapsdata,...imageData];
-  const product = products.find(item =>
-    item.name.replace(/\s+/g, '-').toLowerCase() === productName
-  );
-
-  if (!product) {
-    return <div className="text-center mt-20 text-2xl">Product not found</div>;
+  const handleAddToCart = () => {
+    updateCart(product, quantity);
   }
 
-  // Sample data for "You May Also Like" and "Recently Viewed"
+  // // Find the product from imageData based on the URL parameter
+  // const products = [...Boxdata,...Strapsdata,...imageData];
+  // const product = products.find(item =>
+  //   item.name.replace(/\s+/g, '-').toLowerCase() === productName
+  // );
+
+  // if (!product) {
+  //   return <div className="text-center mt-20 text-2xl">Product not found</div>;
+  // }
+
+  // // Sample data for "You May Also Like" and "Recently Viewed"
   const recommendedProducts = imageData.slice(0, 4); // First 4 products for "You May Also Like"
   const recentlyViewed = [
     ...imageData.slice(0, 1), // One watch
@@ -35,7 +43,7 @@ const ProductDetail = () => {
           {/* Product Image */}
           <div className="flex justify-center">
             <img
-              src={product.imageSrc}
+              src={product.image}
               alt={product.name}
               className="w-3/4 md:w-full h-auto object-cover"
             />
@@ -45,7 +53,7 @@ const ProductDetail = () => {
           <div className="flex flex-col justify-center">
             <h1 className="text-3xl font-bold uppercase">{product.name}</h1>
             <p className="text-gray-500 mt-2 uppercase">{product.tag}</p>
-            <p className="text-2xl font-semibold mt-4">{product.price}</p> {/* Add price to imageData if needed */}
+          <p className="text-2xl font-semibold mt-4">${product.price}</p> {/*Add price to imageData if needed*/}
 
             {/* Quantity Selector */}
             <div className="flex items-center mt-4">
@@ -65,7 +73,9 @@ const ProductDetail = () => {
             </div>
 
             {/* Add to Cart Button */}
-            <button className="mt-6 w-48 py-2 bg-black text-white uppercase rounded-md hover:bg-gray-800 transition-colors">
+            <button className="mt-6 w-48 py-2 bg-black text-white uppercase rounded-md hover:bg-gray-800 transition-colors"
+                    onClick={handleAddToCart}
+            >
               Add to Cart
             </button>
 

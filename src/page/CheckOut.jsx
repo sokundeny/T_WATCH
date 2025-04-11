@@ -3,12 +3,20 @@ import Button from "../component/Button"
 import masterCard from "../assets/image/mcard.png"
 import { useLocation } from 'react-router-dom'
 import { useState } from "react"
+import logo from "../assets/logo.png"
 
 const CheckOut = () => {
     const location = useLocation();
     const { orders } = location.state || {};
 
-    const [ subTotal, setSubTotal ] = useState(19.99);
+    const getSubTotal = () => {
+        const sub = orders.reduce((acc, order) => {
+            return acc + parseInt(order.price) * order.quantity
+        }, 0)
+        return sub
+    }
+
+    const [ subTotal, setSubTotal ] = useState(getSubTotal);
     const [ shippingCost, setShippingCost ] = useState(0);
     const [ discount, setDiscount ] = useState(10);
 
@@ -24,14 +32,17 @@ const CheckOut = () => {
 
     return (
         <div className="flex flex-col w-full">
-            <div className='w-full max-w-full h-10 px-10 sm:px-20 lg:px-32 
-                            font-extrabold py-10 flex items-center justify-between 
+            <div className='w-full max-w-full h-10 px-10 sm:px-20 lg:px-8 
+                            font-extrabold py-10 flex items-center
                             border-b border-b-[#D3D0D0]'>
-                LOGO
+                <img src={logo} alt="" 
+                     className="h-16 w-24 -mt-4"
+                />
+                <p className="font-normal text-2xl -ml-5">Watches</p>
             </div>
-            <main className="flex justify-evenly h-full w-full">
+            <form className="flex justify-evenly h-full w-full">
 
-                <form className="flex-1 box-content p-6 text-xl flex flex-col 
+                <div className="flex-1 h-full box-content p-6 text-xl flex flex-col 
                                 gap-8 border-r-2 border-r-[#D3D0D0]"
                 >
                     <div className="grid grid-cols-2 gap-3">
@@ -42,24 +53,28 @@ const CheckOut = () => {
                                     type="text"
                                     name="fname"
                                     placeholder="First Name"
+                                    required={true}
                                     style={{ gridColumn: 'span 1' }}
                         />
                         <TextInput  id="lname"
                                     type="text"
                                     name="lname"
                                     placeholder="Last Name"
+                                    required={true}
                                     style={{ gridColumn: 'span 1' }}
                         />
                         <TextInput  id="pnumber"
                                     type="text"
                                     name="pnumber"
                                     placeholder="Phone Number"
+                                    required={true}
                                     style={{ gridColumn: 'span 2' }}
                         />
                         <TextInput  id="contact"
                                     type="text"
                                     name="contact"
                                     placeholder="Email"
+                                    required={true}
                                     style={{ gridColumn: 'span 2' }}
                         />
                         
@@ -72,12 +87,14 @@ const CheckOut = () => {
                                         type="text"
                                         name="counorreg"
                                         placeholder="Country / Region"
+                                        required={true}
                                         style={{ gridColumn: 'span 2' }}
                             />
                             <TextInput  id="address"
                                         type="text"
                                         name="address"
                                         placeholder="Address"
+                                        required={true}
                                         style={{ gridColumn: 'span 2' }}
                             />
                             <TextInput  id="apartment"
@@ -90,6 +107,7 @@ const CheckOut = () => {
                                         type="text"
                                         name="city"
                                         placeholder="City"
+                                        required={true}
                                         style={{ gridColumn: 'span 1' }}
                             />
                             <TextInput  id="pcode"
@@ -148,6 +166,7 @@ const CheckOut = () => {
                                         type="text"
                                         name="cnumber"
                                         placeholder="XXX XXX XXX"
+                                        required={true}
                                         style={{ gridColumn: 'span 2' }}
                             />
 
@@ -158,30 +177,42 @@ const CheckOut = () => {
                                         type="text"
                                         name="expi"
                                         placeholder="mm / yy"
+                                        required={true}
                                         style={{ gridColumn: 'span 1' }}
                             />
                             <TextInput  id="scode"
                                         type="text"
                                         name="scode"
                                         placeholder="XXXX"
+                                        required={true}
                                         style={{ gridColumn: 'span 1' }}
                             />
                         </div>
                     </div>
-                </form>
+                </div>
 
-                <div className="p-6 flex-1">
+                <div className="p-6 flex-1 h-full">
                     <h1 className="font-semibold">Review Your Cart</h1>                    
                     
-                        <div className="py-2">
+                    <div className={`mt-2 py-2 flex flex-col gap-4 overflow-y-auto max-h-[328px]`}>
                         {orders && orders.map((order, index) => (
-                            <div key={index}>
-                                <p>{order.product} x {order.quantity}</p>
+                            <div className="grid grid-cols-[150px,auto] grid-rows-[24px,auto,auto] gap-x-4 gap-y-1"
+                                 key={index}
+                            >
+                                <div className="p-4 row-span-3 rounded-xl border-2 border-[#E9EBEF]">
+                                    <img src={order.image} 
+                                        alt="" 
+                                        className="h-28 w-32"
+                                    />
+                                </div>
+                                <p className="font-medium text-xl truncate">{order.name}</p>
+                                <p className="text-sm text-[#8F8F8F]">x{order.quantity}</p>
+                                <p className="font-semibold">${order.price}</p>
                             </div>
                         ))}
                     </div>
 
-                    <div className="flex gap-4 mt-2">
+                    <div className="flex gap-4 mt-4">
                         <TextInput  id="dcode"
                                     type="text"
                                     name="dcode"
@@ -223,7 +254,7 @@ const CheckOut = () => {
                         Place Order
                     </Button>
                 </div>
-            </main>
+            </form>
         </div>
     )
 }
