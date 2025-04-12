@@ -52,6 +52,7 @@ const Categories = () => {
                  name={data.name} 
                  category={data.category} 
                  tag={data.tag} 
+                 price={data.price}
                  data={data}
             />
         ))}

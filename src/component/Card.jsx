@@ -2,7 +2,7 @@
 import 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Card = ({ imageSrc, name, tag, data }) => {
+const Card = ({ imageSrc, name, tag, price,data }) => {
 
     const navigate = useNavigate();
   
@@ -10,7 +10,7 @@ const Card = ({ imageSrc, name, tag, data }) => {
       navigate(`/product/${name}`, {
           state: { product: {
             name: name,
-            price: null,
+            price: price,
             tag: tag,
             image: imageSrc
           }}
